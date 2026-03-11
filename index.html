@@ -253,6 +253,8 @@
           <span class="emoji">⚔️</span> <span id="battleCount">0</span>
           <span class="emoji">🟡</span> <span id="goldCount">0</span>
       </div>
+      <div>Page views: <span id="views">Loading...</span></div>
+      <div id="clock" style="margin-top:10px; font-size:0.9em; color: white;"></div>
       <div>
           <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
           <br><br>
@@ -426,6 +428,35 @@
           // remove after animation
           dragon.addEventListener("animationend", () => dragon.remove());
       });
+    });
+
+    function updateClock() {
+        const clockEl = document.getElementById("clock");
+        const now = new Date();
+
+        // Format date
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        const day = String(now.getDate()).padStart(2, '0');
+
+        // Format time
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+
+        // Combine
+        clockEl.textContent = `${year}-${month}-${day}  ${hours}:${minutes}:${seconds}`;
+    }
+
+    // Update every second
+    setInterval(updateClock, 1000);
+    updateClock(); // initialize immediately
+
+    // <-- third party veiw counter
+    fetch('https://api.countapi.xyz/hit/mingzhe/homepage')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('views').textContent = data.value;
     });
   </script>
 
