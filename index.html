@@ -1,433 +1,433 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Mingzhe Wang</title>
+  <head>
+  <meta charset="UTF-8">
+  <title>Mingzhe Wang</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-<style>
-body{
-    margin:0;
-    background:#87CEEB;
-    font-family: 'Press Start 2P', cursive;
-    text-align:center;
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-}
+  <style>
+  body{
+      margin:0;
+      background:#87CEEB;
+      font-family: 'Press Start 2P', cursive;
+      text-align:center;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+  }
 
-/* Header */
-header{
-    padding:10px 20px;
-    color:white;
-    text-shadow:3px 3px #000;
-}
+  /* Header */
+  header{
+      padding:10px 20px;
+      color:white;
+      text-shadow:3px 3px #000;
+  }
 
-/* Panels */
-.panel{
-    background:#8B5A2B;
-    border:6px solid #5A3A1A;
-    color:white;
-    width:60%;
-    margin:40px auto;
-    padding:10px;
-    box-shadow:8px 8px #3d2a14;
-    position: relative;
-}
+  /* Panels */
+  .panel{
+      background:#8B5A2B;
+      border:6px solid #5A3A1A;
+      color:white;
+      width:60%;
+      margin:40px auto;
+      padding:10px;
+      box-shadow:8px 8px #3d2a14;
+      position: relative;
+  }
 
-/* Timeline-work */
-.timeline-item-edu {
-    position: relative;
-    padding-left: 50px;
-    margin-bottom: 25px;
-    text-align: left;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    cursor: pointer;
-    border-radius: 20px;
-}
+  /* Education */
+  .timeline-item-edu {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 25px;
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer;
+      border-radius: 20px;
+  }
 
-.timeline-item-edu:hover {
-    transform: translateY(-2px);               
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
-    background: rgba(255, 255, 255, 0.2);
-}
+  .timeline-item-edu:hover {
+      transform: translateY(-2px);               
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
+      background: rgba(255, 255, 255, 0.2);
+  }
 
-.timeline-item-edu::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    background: #3CB043;
-    border: 4px solid #1f6b29;
-    border-radius: 50%;
-}
+  .timeline-item-edu::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background: #3CB043;
+      border: 4px solid #1f6b29;
+      border-radius: 50%;
+  }
 
-.timeline-item-edu span.date {
-    display: block;
-    font-size: 0.7rem;
-    color: #d0ffd0;
-    margin-bottom: 5px;
-}
+  .timeline-item-edu span.date {
+      display: block;
+      font-size: 0.7rem;
+      color: #d0ffd0;
+      margin-bottom: 5px;
+  }
 
-/* Timeline */
-.timeline-item-exp {
-    position: relative;
-    padding-left: 50px;
-    margin-bottom: 25px;
-    text-align: left;
-    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    cursor: pointer;
-    border-radius: 20px;
-}
+  /* Experience */
+  .timeline-item-exp {
+      position: relative;
+      padding-left: 50px;
+      margin-bottom: 25px;
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer;
+      border-radius: 20px;
+  }
 
-.timeline-item-exp:hover {
-    transform: translateY(-2px);               
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
-    background: rgba(255, 255, 255, 0.2);
-}
+  .timeline-item-exp:hover {
+      transform: translateY(-2px);               
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
+      background: rgba(255, 255, 255, 0.2);
+  }
 
-.timeline-item-exp::before {
-    content: '';
-    position: absolute;
-    left: 10px;
-    top: 0;
-    width: 30px;
-    height: 30px;
-    background: #3CB043;
-    border: 4px solid #1f6b29;
-    border-radius: 50%;
-}
+  .timeline-item-exp::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      width: 30px;
+      height: 30px;
+      background: #3CB043;
+      border: 4px solid #1f6b29;
+      border-radius: 50%;
+  }
 
-.timeline-item-exp span.date {
-    display: block;
-    font-size: 0.7rem;
-    color: #d0ffd0;
-    margin-bottom: 5px;
-}
+  .timeline-item-exp span.date {
+      display: block;
+      font-size: 0.7rem;
+      color: #d0ffd0;
+      margin-bottom: 5px;
+  }
 
-/* Buttons */
-.button{
-    display:inline-block;
-    margin-top:20px;
-    padding:15px 25px;
-    background:#3CB043;
-    border:4px solid #1f6b29;
-    color:white;
-    text-decoration:none;
-}
+  /* Buttons */
+  .button{
+      display:inline-block;
+      margin-top:20px;
+      padding:15px 25px;
+      background:#3CB043;
+      border:4px solid #1f6b29;
+      color:white;
+      text-decoration:none;
+  }
 
-.button:hover{
-    background:#2e8b57;
-}
+  .button:hover{
+      background:#2e8b57;
+  }
 
-.emoji{
-    display:inline-block;
-    transform: translateY(-3px);
-}
+  .emoji{
+      display:inline-block;
+      transform: translateY(-3px);
+  }
 
-.skills span {
-    display: inline-block;
-    background: #3CB043; 
-    color: white; 
-    margin: 3px 5px;
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 0.9em;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
+  .skills span {
+      display: inline-block;
+      background: #3CB043; 
+      color: white; 
+      margin: 3px 5px;
+      padding: 5px 10px;
+      border-radius: 12px;
+      font-size: 0.9em;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
 
-/* Hover jump */
-.skills span:hover{
-    transform: translateY(-6px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+  /* Hover jump */
+  .skills span:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
 
-/* Gold popup */
-.gold-popup {
-    position: absolute;
-    left: 50%;
-    top: -10px;
-    transform: translateX(-50%) scale(0);
-    color: gold;
-    font-weight: bold;
-    pointer-events: none;
-    animation: coinPop 0.6s ease forwards;
-    white-space: nowrap;
-    font-size: 0.9em;
-    text-shadow: 1px 1px 2px #aa8b00;
-}
+  /* Gold popup */
+  .gold-popup {
+      position: absolute;
+      left: 50%;
+      top: -10px;
+      transform: translateX(-50%) scale(0);
+      color: gold;
+      font-weight: bold;
+      pointer-events: none;
+      animation: coinPop 0.6s ease forwards;
+      white-space: nowrap;
+      font-size: 0.9em;
+      text-shadow: 1px 1px 2px #aa8b00;
+  }
 
-@keyframes coinPop {
-    0% {
-        transform: translateX(-50%) translateY(0) scale(0.5);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(-50%) translateY(-20px) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-50%) translateY(-40px) scale(1);
-        opacity: 0;
-    }
-}
+  @keyframes coinPop {
+      0% {
+          transform: translateX(-50%) translateY(0) scale(0.5);
+          opacity: 1;
+      }
+      50% {
+          transform: translateX(-50%) translateY(-20px) scale(1.2);
+          opacity: 1;
+      }
+      100% {
+          transform: translateX(-50%) translateY(-40px) scale(1);
+          opacity: 0;
+      }
+  }
 
-/* Gold counter */
-.gold-counter {
-    margin-top: 10px;
-    font-size: 0.9em;
-    color: white;
-}
+  /* Gold counter */
+  .gold-counter {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: white;
+  }
 
-.gold-popup {
-    position: absolute;
-    background: #3CB043; /* green box */
-    color: white;         /* white text */
-    padding: 3px 8px;
-    border-radius: 8px;
-    font-weight: bold;
-    pointer-events: none;
-    animation: coinPop 0.6s ease forwards;
-    white-space: nowrap;
-    font-size: 0.85em;
-    text-shadow: 1px 1px 2px #000; /* subtle text shadow */
-}
+  .gold-popup {
+      position: absolute;
+      background: #3CB043; /* green box */
+      color: white;         /* white text */
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+      pointer-events: none;
+      animation: coinPop 0.6s ease forwards;
+      white-space: nowrap;
+      font-size: 0.85em;
+      text-shadow: 1px 1px 2px #000; /* subtle text shadow */
+  }
 
-.magic-popup {
-    position: absolute;
-    background: #8000FF;  /* fiery orange/red background */
-    color: white;
-    padding: 3px 8px;
-    border-radius: 8px;
-    font-weight: bold;
-    pointer-events: none;
-    animation: firePop 0.6s ease forwards;
-    white-space: nowrap;
-    font-size: 0.85em;
-    text-shadow: 1px 1px 2px #000;
-}
+  .magic-popup {
+      position: absolute;
+      background: #8000FF;  /* fiery orange/red background */
+      color: white;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+      pointer-events: none;
+      animation: firePop 0.6s ease forwards;
+      white-space: nowrap;
+      font-size: 0.85em;
+      text-shadow: 1px 1px 2px #000;
+  }
 
-.fire-popup {
-    position: absolute;
-    background: #FF4500;  /* fiery orange/red background */
-    color: white;
-    padding: 3px 8px;
-    border-radius: 8px;
-    font-weight: bold;
-    pointer-events: none;
-    animation: firePop 0.6s ease forwards;
-    white-space: nowrap;
-    font-size: 0.85em;
-    text-shadow: 1px 1px 2px #000;
-}
+  .fire-popup {
+      position: absolute;
+      background: #FF4500;  /* fiery orange/red background */
+      color: white;
+      padding: 3px 8px;
+      border-radius: 8px;
+      font-weight: bold;
+      pointer-events: none;
+      animation: firePop 0.6s ease forwards;
+      white-space: nowrap;
+      font-size: 0.85em;
+      text-shadow: 1px 1px 2px #000;
+  }
 
-@keyframes firePop {
-    0% {
-        transform: translateX(-50%) translateY(0) scale(0.5);
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(-50%) translateY(-20px) scale(1.2);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-50%) translateY(-40px) scale(0.8);
-        opacity: 0;
-    }
-}
+  @keyframes firePop {
+      0% {
+          transform: translateX(-50%) translateY(0) scale(0.5);
+          opacity: 0;
+      }
+      50% {
+          transform: translateX(-50%) translateY(-20px) scale(1.2);
+          opacity: 1;
+      }
+      100% {
+          transform: translateX(-50%) translateY(-40px) scale(0.8);
+          opacity: 0;
+      }
+  }
 
-</style>
-</head>
-<body>
+  </style>
+  </head>
 
-<header>
-    <h1>MINGZHE WANG</h1>
-    <div class="gold-counter">
-        <span>Software Engineer</span> 
-        <span class="emoji">❤️</span> <span id="hpCount">100</span>
-        <span class="emoji">⚔️</span> <span id="battleCount">0</span>
-        <span class="emoji">🟡</span> <span id="goldCount">0</span>
-    </div>
-    <div>
-        <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
-        <br><br>
-        <a class="button" href="https://github.com/myron0220" target="_blank">GitHub</a>
-        <a class="button" href="https://www.linkedin.com/in/mingzhe-wang-08b17a1b7/" target="_blank">LinkedIn</a>
-    </div>
-</header>
+  <body>
+  <header>
+      <h1>MINGZHE WANG</h1>
+      <div class="gold-counter">
+          <span>Software Engineer</span> 
+          <span class="emoji">❤️</span> <span id="hpCount">100</span>
+          <span class="emoji">⚔️</span> <span id="battleCount">0</span>
+          <span class="emoji">🟡</span> <span id="goldCount">0</span>
+      </div>
+      <div>
+          <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
+          <br><br>
+          <a class="button" href="https://github.com/myron0220" target="_blank">GitHub</a>
+          <a class="button" href="https://www.linkedin.com/in/mingzhe-wang-08b17a1b7/" target="_blank">LinkedIn</a>
+      </div>
+  </header>
 
-<div class="panel">
-    <h2>Experience</h2>
-    <div class="timeline-item-edu" data-href="https://www.symcor.ca/">
-        <span class="date">Sep 2025 – Apr 2026</span>
-        <span style="color:#FFD700; font-weight:bold;">Symcor</span> - <span>Software Engineer Co-op</span>
-        <br></br>
-        <span>AI-based financial systems</span>
-    </div>
+  <div class="panel">
+      <h2>Experience</h2>
+      <div class="timeline-item-edu" data-href="https://www.symcor.ca/">
+          <span class="date">Sep 2025 – Apr 2026</span>
+          <span style="color:#FFD700; font-weight:bold;">Symcor</span> - <span>Software Engineer Co-op</span>
+          <br></br>
+          <span>AI-based financial systems</span>
+      </div>
 
-    <div class="timeline-item-edu" data-href="https://www.eng.mcmaster.ca/mcscert/">
-        <span class="date">Sep 2022 – Jun 2023</span>
-        <span style="color:#FFD700; font-weight:bold;">McSCert</span> - <span>Research Assistant Co-op</span>
-        <br></br>
-        <span>3D code visualization</span>
-    </div>
+      <div class="timeline-item-edu" data-href="https://www.eng.mcmaster.ca/mcscert/">
+          <span class="date">Sep 2022 – Jun 2023</span>
+          <span style="color:#FFD700; font-weight:bold;">McSCert</span> - <span>Research Assistant Co-op</span>
+          <br></br>
+          <span>3D code visualization</span>
+      </div>
 
-    <div class="timeline-item-edu" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
-        <span class="date">May 2022 – Aug 2022</span>
-        <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>Research Assistant</span>
-        <br></br>
-        <span>Arduino embedded system</span>
-    </div>
-</div>
+      <div class="timeline-item-edu" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
+          <span class="date">May 2022 – Aug 2022</span>
+          <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>Research Assistant</span>
+          <br></br>
+          <span>Arduino embedded system</span>
+      </div>
+  </div>
 
-<div class="panel">
-    <h2>Education</h2>
-    <div class="timeline-item-exp">
-        <span class="date">Aug 2026 (Expected)</span>
-        <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>M.Sc. Computer Science</span>
-    </div>
-    <div class="timeline-item-exp">
-        <span class="date">Apr 2023</span>
-        <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>B.A.Sc. Computer Science</span>
-    </div>
-    <div class="timeline-item-exp">
-        <span class="date">Jul 2019</span>
-        <span style="color:#FFD700; font-weight:bold;">Zhengzhou University</span> - <span>B.Ec. Finance</span>
-    </div>
-</div>
+  <div class="panel">
+      <h2>Education</h2>
+      <div class="timeline-item-exp">
+          <span class="date">Aug 2026 (Expected)</span>
+          <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>M.Sc. Computer Science</span>
+      </div>
+      <div class="timeline-item-exp">
+          <span class="date">Apr 2023</span>
+          <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>B.A.Sc. Computer Science</span>
+      </div>
+      <div class="timeline-item-exp">
+          <span class="date">Jul 2019</span>
+          <span style="color:#FFD700; font-weight:bold;">Zhengzhou University</span> - <span>B.Ec. Finance</span>
+      </div>
+  </div>
 
-<div class="panel">
-<h2>Skills</h2>
-<div class="skills">
-    <span>C/C++</span>
-    <span>TypeScript</span>
-    <span>Java</span>
-    <span>Python</span>
-    <span>SQL</span>
-    <span>Bash</span>
-    <span>HTML/CSS</span>
-    <span>React</span>
-    <span>Node.js</span>
-    <span>NestJS</span>
-    <span>Express.js</span>
-    <span>Spring Boot</span>
-    <span>GraphQL</span>
-    <span>Linux</span>
-    <span>VS Code</span>
-    <span>Git</span>
-    <span>Docker</span>
-    <span>Azure</span>
-    <span>Postman</span>
-    <span>Jira</span>
-    <span>MATLAB</span>
-    <span>PostgreSQL</span>
-    <span>Redis</span>
-</div>
-</div>
+  <div class="panel">
+  <h2>Skills</h2>
+  <div class="skills">
+      <span>C/C++</span>
+      <span>TypeScript</span>
+      <span>Java</span>
+      <span>Python</span>
+      <span>SQL</span>
+      <span>Bash</span>
+      <span>HTML/CSS</span>
+      <span>React</span>
+      <span>Node.js</span>
+      <span>NestJS</span>
+      <span>Express.js</span>
+      <span>Spring Boot</span>
+      <span>GraphQL</span>
+      <span>Linux</span>
+      <span>VS Code</span>
+      <span>Git</span>
+      <span>Docker</span>
+      <span>Azure</span>
+      <span>Postman</span>
+      <span>Jira</span>
+      <span>MATLAB</span>
+      <span>PostgreSQL</span>
+      <span>Redis</span>
+  </div>
+  </div>
 
-<footer style="margin:40px 0; color:white; text-shadow:2px 2px #000;">
-  © 2026 Mingzhe Wang. All rights reserved.
-</footer>
+  <footer style="margin:40px 0; color:white; text-shadow:2px 2px #000;">
+    © 2026 Mingzhe Wang. All rights reserved.
+  </footer>
 
-<script>
-  // Timeline links
-  const timelineItems = document.querySelectorAll('.timeline-item-work');
-  timelineItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const url = item.dataset.href;
-      if(url) window.open(url, "_blank");
-    });
-  });
-
-  // Gold counter + random popup
-  let gold = 0;
-  let hp = 100;
-  let battle = 0;
-  const goldCounter = document.getElementById("goldCount");
-  const hpCounter = document.getElementById("hpCount");
-  const battleCounter = document.getElementById("battleCount");
-
-  document.querySelectorAll(".skills span").forEach(skill => {
-    skill.addEventListener("click", () => {
-        const gain = Math.floor(Math.random() * 10) + 1;
-        gold += gain;
-        goldCounter.textContent = gold;
-
-        // get skill position
-        const rect = skill.getBoundingClientRect();
-
-        // create popup in body
-        const popup = document.createElement("span");
-        popup.textContent = `🟡+${gain}`;
-        popup.classList.add("gold-popup");
-        document.body.appendChild(popup);
-
-        // position popup
-        popup.style.left = rect.left + rect.width/2 + "px";
-        popup.style.top  = rect.top - 25 + window.scrollY + "px"; // slightly above skill
-
-        // remove after animation
-        popup.addEventListener("animationend", () => popup.remove());
-    });
-  });
-
-  document.querySelectorAll(".timeline-item-exp").forEach(item => {
-    item.addEventListener("click", () => {
-        const hurt = Math.floor(Math.random() * 10) + 1;
-        hp -= hurt;
-        hpCounter.textContent = hp;
-
-        // existing link opening
+  <script>
+    // Timeline links
+    const timelineItems = document.querySelectorAll('.timeline-item-work');
+    timelineItems.forEach(item => {
+      item.addEventListener('click', () => {
         const url = item.dataset.href;
         if(url) window.open(url, "_blank");
-
-        // spawn dragon
-        const rect = item.getBoundingClientRect();
-        const dragon = document.createElement("span"); // use span, not img
-        dragon.textContent = `🔥🐉 ❤️-${hurt}`;                   // emoji goes here
-        dragon.classList.add("fire-popup");
-        document.body.appendChild(dragon);
-
-        // position above the clicked experience
-        dragon.style.left = rect.left + rect.width/2 - 60 + "px"; // center
-        dragon.style.top  = rect.top - 50 + window.scrollY + "px";
-
-        // remove after animation
-        dragon.addEventListener("animationend", () => dragon.remove());
+      });
     });
-  });
 
-  document.querySelectorAll(".timeline-item-edu").forEach(item => {
-    item.addEventListener("click", () => {
-        const attack = Math.floor(Math.random() * 10) + 1;
-        battle += attack;
-        battleCounter.textContent = battle;
+    // Gold counter + random popup
+    let gold = 0;
+    let hp = 100;
+    let battle = 0;
+    const goldCounter = document.getElementById("goldCount");
+    const hpCounter = document.getElementById("hpCount");
+    const battleCounter = document.getElementById("battleCount");
 
-        // existing link opening
-        const url = item.dataset.href;
-        if(url) window.open(url, "_blank");
+    document.querySelectorAll(".skills span").forEach(skill => {
+      skill.addEventListener("click", () => {
+          const gain = Math.floor(Math.random() * 10) + 1;
+          gold += gain;
+          goldCounter.textContent = gold;
 
-        // spawn dragon
-        const rect = item.getBoundingClientRect();
-        const dragon = document.createElement("span"); // use span, not img
-        dragon.textContent = `📖📚 ⚔️+${attack}`;                   // emoji goes here
-        dragon.classList.add("magic-popup");
-        document.body.appendChild(dragon);
+          // get skill position
+          const rect = skill.getBoundingClientRect();
 
-        // position above the clicked experience
-        dragon.style.left = rect.left + rect.width/2 - 60 + "px"; // center
-        dragon.style.top  = rect.top - 50 + window.scrollY + "px";
+          // create popup in body
+          const popup = document.createElement("span");
+          popup.textContent = `🟡+${gain}`;
+          popup.classList.add("gold-popup");
+          document.body.appendChild(popup);
 
-        // remove after animation
-        dragon.addEventListener("animationend", () => dragon.remove());
+          // position popup
+          popup.style.left = rect.left + rect.width/2 + "px";
+          popup.style.top  = rect.top - 25 + window.scrollY + "px"; // slightly above skill
+
+          // remove after animation
+          popup.addEventListener("animationend", () => popup.remove());
+      });
     });
-  });
-</script>
 
-</body>
+    document.querySelectorAll(".timeline-item-exp").forEach(item => {
+      item.addEventListener("click", () => {
+          const hurt = Math.floor(Math.random() * 10) + 1;
+          hp -= hurt;
+          hpCounter.textContent = hp;
+
+          // existing link opening
+          const url = item.dataset.href;
+          if(url) window.open(url, "_blank");
+
+          // spawn dragon
+          const rect = item.getBoundingClientRect();
+          const dragon = document.createElement("span"); // use span, not img
+          dragon.textContent = `🔥🐉 ❤️-${hurt}`;                   // emoji goes here
+          dragon.classList.add("fire-popup");
+          document.body.appendChild(dragon);
+
+          // position above the clicked experience
+          dragon.style.left = rect.left + rect.width/2 - 60 + "px"; // center
+          dragon.style.top  = rect.top - 50 + window.scrollY + "px";
+
+          // remove after animation
+          dragon.addEventListener("animationend", () => dragon.remove());
+      });
+    });
+
+    document.querySelectorAll(".timeline-item-edu").forEach(item => {
+      item.addEventListener("click", () => {
+          const attack = Math.floor(Math.random() * 10) + 1;
+          battle += attack;
+          battleCounter.textContent = battle;
+
+          // existing link opening
+          const url = item.dataset.href;
+          if(url) window.open(url, "_blank");
+
+          // spawn dragon
+          const rect = item.getBoundingClientRect();
+          const dragon = document.createElement("span"); // use span, not img
+          dragon.textContent = `📖📚 ⚔️+${attack}`;                   // emoji goes here
+          dragon.classList.add("magic-popup");
+          document.body.appendChild(dragon);
+
+          // position above the clicked experience
+          dragon.style.left = rect.left + rect.width/2 - 60 + "px"; // center
+          dragon.style.top  = rect.top - 50 + window.scrollY + "px";
+
+          // remove after animation
+          dragon.addEventListener("animationend", () => dragon.remove());
+      });
+    });
+  </script>
+
+  </body>
 </html>
