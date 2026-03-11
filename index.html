@@ -253,7 +253,6 @@
           <span class="emoji">⚔️</span> <span id="battleCount">0</span>
           <span class="emoji">🟡</span> <span id="goldCount">0</span>
       </div>
-      <div>Page views: <span id="views">Loading...</span></div>
       <div id="clock" style="margin-top:10px; font-size:0.9em; color: white;"></div>
       <div>
           <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
@@ -451,13 +450,6 @@
     // Update every second
     setInterval(updateClock, 1000);
     updateClock(); // initialize immediately
-
-    // <-- third party veiw counter
-    fetch('https://api.countapi.xyz/hit/mingzhe/homepage')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('views').textContent = data.value;
-    });
   </script>
 
   </body>
