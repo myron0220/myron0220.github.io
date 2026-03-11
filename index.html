@@ -36,8 +36,8 @@ header{
     position: relative;
 }
 
-/* Timeline */
-.timeline-item {
+/* Timeline-work */
+.timeline-item-edu {
     position: relative;
     padding-left: 50px;
     margin-bottom: 25px;
@@ -47,13 +47,13 @@ header{
     border-radius: 20px;
 }
 
-.timeline-item:hover {
+.timeline-item-edu:hover {
     transform: translateY(-2px);               
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
     background: rgba(255, 255, 255, 0.2);
 }
 
-.timeline-item::before {
+.timeline-item-edu::before {
     content: '';
     position: absolute;
     left: 10px;
@@ -65,7 +65,43 @@ header{
     border-radius: 50%;
 }
 
-.timeline-item span.date {
+.timeline-item-edu span.date {
+    display: block;
+    font-size: 0.7rem;
+    color: #d0ffd0;
+    margin-bottom: 5px;
+}
+
+/* Timeline */
+.timeline-item-exp {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 25px;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.timeline-item-exp:hover {
+    transform: translateY(-2px);               
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item-exp::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #3CB043;
+    border: 4px solid #1f6b29;
+    border-radius: 50%;
+}
+
+.timeline-item-exp span.date {
     display: block;
     font-size: 0.7rem;
     color: #d0ffd0;
@@ -87,13 +123,7 @@ header{
     background:#2e8b57;
 }
 
-/* Gold in header */
-.gold{
-    display:inline-block;
-    transform: translateY(-3px);
-}
-
-.hp{
+.emoji{
     display:inline-block;
     transform: translateY(-3px);
 }
@@ -168,6 +198,20 @@ header{
     text-shadow: 1px 1px 2px #000; /* subtle text shadow */
 }
 
+.magic-popup {
+    position: absolute;
+    background: #8000FF;  /* fiery orange/red background */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: firePop 0.6s ease forwards;
+    white-space: nowrap;
+    font-size: 0.85em;
+    text-shadow: 1px 1px 2px #000;
+}
+
 .fire-popup {
     position: absolute;
     background: #FF4500;  /* fiery orange/red background */
@@ -205,8 +249,9 @@ header{
     <h1>MINGZHE WANG</h1>
     <div class="gold-counter">
         <span>Software Engineer</span> 
-        <span class="gold">🟡</span> <span id="goldCount">0</span>
-        <span class="hp">❤️</span> <span id="hpCount">0</span>
+        <span class="emoji">❤️</span> <span id="hpCount">100</span>
+        <span class="emoji">⚔️</span> <span id="battleCount">0</span>
+        <span class="emoji">🟡</span> <span id="goldCount">0</span>
     </div>
     <div>
         <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
@@ -218,21 +263,21 @@ header{
 
 <div class="panel">
     <h2>Experience</h2>
-    <div class="timeline-item" data-href="https://www.symcor.ca/">
+    <div class="timeline-item-edu" data-href="https://www.symcor.ca/">
         <span class="date">Sep 2025 – Apr 2026</span>
         <span style="color:#FFD700; font-weight:bold;">Symcor</span> - <span>Software Engineer Co-op</span>
         <br></br>
         <span>AI-based financial systems</span>
     </div>
 
-    <div class="timeline-item" data-href="https://www.eng.mcmaster.ca/mcscert/">
+    <div class="timeline-item-edu" data-href="https://www.eng.mcmaster.ca/mcscert/">
         <span class="date">Sep 2022 – Jun 2023</span>
         <span style="color:#FFD700; font-weight:bold;">McSCert</span> - <span>Research Assistant Co-op</span>
         <br></br>
         <span>3D code visualization</span>
     </div>
 
-    <div class="timeline-item" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
+    <div class="timeline-item-edu" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
         <span class="date">May 2022 – Aug 2022</span>
         <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>Research Assistant</span>
         <br></br>
@@ -242,15 +287,15 @@ header{
 
 <div class="panel">
     <h2>Education</h2>
-    <div class="timeline-item">
+    <div class="timeline-item-exp">
         <span class="date">Aug 2026 (Expected)</span>
         <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>M.Sc. Computer Science</span>
     </div>
-    <div class="timeline-item">
+    <div class="timeline-item-exp">
         <span class="date">Apr 2023</span>
         <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>B.A.Sc. Computer Science</span>
     </div>
-    <div class="timeline-item">
+    <div class="timeline-item-exp">
         <span class="date">Jul 2019</span>
         <span style="color:#FFD700; font-weight:bold;">Zhengzhou University</span> - <span>B.Ec. Finance</span>
     </div>
@@ -291,7 +336,7 @@ header{
 
 <script>
   // Timeline links
-  const timelineItems = document.querySelectorAll('.timeline-item');
+  const timelineItems = document.querySelectorAll('.timeline-item-work');
   timelineItems.forEach(item => {
     item.addEventListener('click', () => {
       const url = item.dataset.href;
@@ -302,8 +347,10 @@ header{
   // Gold counter + random popup
   let gold = 0;
   let hp = 100;
+  let battle = 0;
   const goldCounter = document.getElementById("goldCount");
   const hpCounter = document.getElementById("hpCount");
+  const battleCounter = document.getElementById("battleCount");
 
   document.querySelectorAll(".skills span").forEach(skill => {
     skill.addEventListener("click", () => {
@@ -329,7 +376,7 @@ header{
     });
   });
 
-  document.querySelectorAll(".timeline-item").forEach(item => {
+  document.querySelectorAll(".timeline-item-exp").forEach(item => {
     item.addEventListener("click", () => {
         const hurt = Math.floor(Math.random() * 10) + 1;
         hp -= hurt;
@@ -344,6 +391,32 @@ header{
         const dragon = document.createElement("span"); // use span, not img
         dragon.textContent = `🔥🐉 ❤️-${hurt}`;                   // emoji goes here
         dragon.classList.add("fire-popup");
+        document.body.appendChild(dragon);
+
+        // position above the clicked experience
+        dragon.style.left = rect.left + rect.width/2 - 60 + "px"; // center
+        dragon.style.top  = rect.top - 50 + window.scrollY + "px";
+
+        // remove after animation
+        dragon.addEventListener("animationend", () => dragon.remove());
+    });
+  });
+
+  document.querySelectorAll(".timeline-item-edu").forEach(item => {
+    item.addEventListener("click", () => {
+        const attack = Math.floor(Math.random() * 10) + 1;
+        battle += attack;
+        battleCounter.textContent = battle;
+
+        // existing link opening
+        const url = item.dataset.href;
+        if(url) window.open(url, "_blank");
+
+        // spawn dragon
+        const rect = item.getBoundingClientRect();
+        const dragon = document.createElement("span"); // use span, not img
+        dragon.textContent = `📖📚 ⚔️+${attack}`;                   // emoji goes here
+        dragon.classList.add("magic-popup");
         document.body.appendChild(dragon);
 
         // position above the clicked experience
