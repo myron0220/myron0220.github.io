@@ -93,6 +93,11 @@ header{
     transform: translateY(-3px);
 }
 
+.hp{
+    display:inline-block;
+    transform: translateY(-3px);
+}
+
 .skills span {
     display: inline-block;
     background: #3CB043; 
@@ -163,6 +168,35 @@ header{
     text-shadow: 1px 1px 2px #000; /* subtle text shadow */
 }
 
+.fire-popup {
+    position: absolute;
+    background: #FF4500;  /* fiery orange/red background */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: firePop 0.6s ease forwards;
+    white-space: nowrap;
+    font-size: 0.85em;
+    text-shadow: 1px 1px 2px #000;
+}
+
+@keyframes firePop {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-40px) scale(0.8);
+        opacity: 0;
+    }
+}
+
 </style>
 </head>
 <body>
@@ -170,7 +204,9 @@ header{
 <header>
     <h1>MINGZHE WANG</h1>
     <div class="gold-counter">
-        <span>Software Engineer</span> <span class="gold">🟡</span> <span id="goldCount">0</span>
+        <span>Software Engineer</span> 
+        <span class="gold">🟡</span> <span id="goldCount">0</span>
+        <span class="hp">❤️</span> <span id="hpCount">0</span>
     </div>
     <div>
         <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
@@ -265,13 +301,15 @@ header{
 
   // Gold counter + random popup
   let gold = 0;
-  const counter = document.getElementById("goldCount");
+  let hp = 100;
+  const goldCounter = document.getElementById("goldCount");
+  const hpCounter = document.getElementById("hpCount");
 
   document.querySelectorAll(".skills span").forEach(skill => {
     skill.addEventListener("click", () => {
         const gain = Math.floor(Math.random() * 10) + 1;
         gold += gain;
-        counter.textContent = gold;
+        goldCounter.textContent = gold;
 
         // get skill position
         const rect = skill.getBoundingClientRect();
@@ -288,6 +326,32 @@ header{
 
         // remove after animation
         popup.addEventListener("animationend", () => popup.remove());
+    });
+  });
+
+  document.querySelectorAll(".timeline-item").forEach(item => {
+    item.addEventListener("click", () => {
+        const hurt = Math.floor(Math.random() * 10) + 1;
+        hp -= hurt;
+        hpCounter.textContent = hp;
+
+        // existing link opening
+        const url = item.dataset.href;
+        if(url) window.open(url, "_blank");
+
+        // spawn dragon
+        const rect = item.getBoundingClientRect();
+        const dragon = document.createElement("span"); // use span, not img
+        dragon.textContent = `🔥🐉 ❤️-${hurt}`;                   // emoji goes here
+        dragon.classList.add("fire-popup");
+        document.body.appendChild(dragon);
+
+        // position above the clicked experience
+        dragon.style.left = rect.left + rect.width/2 - 60 + "px"; // center
+        dragon.style.top  = rect.top - 50 + window.scrollY + "px";
+
+        // remove after animation
+        dragon.addEventListener("animationend", () => dragon.remove());
     });
   });
 </script>
