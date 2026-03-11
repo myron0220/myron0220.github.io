@@ -7,12 +7,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
 <style>
-
 body{
     margin:0;
     background:#87CEEB;
     font-family: 'Press Start 2P', cursive;
     text-align:center;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 /* Header */
@@ -22,7 +24,7 @@ header{
     text-shadow:3px 3px #000;
 }
 
-/* Block style panels */
+/* Panels */
 .panel{
     background:#8B5A2B;
     border:6px solid #5A3A1A;
@@ -34,24 +36,21 @@ header{
     position: relative;
 }
 
-/* Timeline bullets */
+/* Timeline */
 .timeline-item {
     position: relative;
     padding-left: 50px;
     margin-bottom: 25px;
     text-align: left;
-}
-
-.timeline-item {
     transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-    cursor: pointer;             /* indicate hoverable */
-    border-radius: 20px;         /* round corners by default */
+    cursor: pointer;
+    border-radius: 20px;
 }
 
 .timeline-item:hover {
     transform: translateY(-2px);               
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
-    background: rgba(255, 255, 255, 0.2);  /* subtle, semi-transparent so text is readable */
+    background: rgba(255, 255, 255, 0.2);
 }
 
 .timeline-item::before {
@@ -73,7 +72,7 @@ header{
     margin-bottom: 5px;
 }
 
-/* Pixel button */
+/* Buttons */
 .button{
     display:inline-block;
     margin-top:20px;
@@ -88,82 +87,142 @@ header{
     background:#2e8b57;
 }
 
+/* Gold in header */
+.gold{
+    display:inline-block;
+    transform: translateY(-3px);
+}
+
+.skills span {
+    display: inline-block;
+    background: #3CB043; 
+    color: white; 
+    margin: 3px 5px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Hover jump */
+.skills span:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Gold popup */
+.gold-popup {
+    position: absolute;
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%) scale(0);
+    color: gold;
+    font-weight: bold;
+    pointer-events: none;
+    animation: coinPop 0.6s ease forwards;
+    white-space: nowrap;
+    font-size: 0.9em;
+    text-shadow: 1px 1px 2px #aa8b00;
+}
+
+@keyframes coinPop {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-40px) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Gold counter */
+.gold-counter {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: white;
+}
+
+.gold-popup {
+    position: absolute;
+    background: #3CB043; /* green box */
+    color: white;         /* white text */
+    padding: 3px 8px;
+    border-radius: 8px;
+    font-weight: bold;
+    pointer-events: none;
+    animation: coinPop 0.6s ease forwards;
+    white-space: nowrap;
+    font-size: 0.85em;
+    text-shadow: 1px 1px 2px #000; /* subtle text shadow */
+}
+
 </style>
 </head>
-
 <body>
 
-  <header>
+<header>
     <h1>MINGZHE WANG</h1>
-    <p>Software Engineer</p>
-    <div>
-      <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
-      <br></br>
-      <a class="button" href="https://github.com/myron0220" target="_blank">GitHub</a>
-      <a class="button" href="https://www.linkedin.com/in/mingzhe-wang-08b17a1b7/" target="_blank">LinkedIn</a>
+    <div class="gold-counter">
+        <span>Software Engineer</span> <span class="gold">🟡</span> <span id="goldCount">0</span>
     </div>
-  </header>
+    <div>
+        <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
+        <br><br>
+        <a class="button" href="https://github.com/myron0220" target="_blank">GitHub</a>
+        <a class="button" href="https://www.linkedin.com/in/mingzhe-wang-08b17a1b7/" target="_blank">LinkedIn</a>
+    </div>
+</header>
 
-  <div class="panel">
+<div class="panel">
     <h2>Experience</h2>
-
     <div class="timeline-item" data-href="https://www.symcor.ca/">
-      <span class="date">Sep 2025 – Apr 2026</span>
-      <span style="color:#FFD700; font-weight:bold;">Symcor</span>
-      <span> - </span>
-      <span>Software Engineer Co-op</span>
-      <br></br>
-      <span>AI-based financial systems</span>
+        <span class="date">Sep 2025 – Apr 2026</span>
+        <span style="color:#FFD700; font-weight:bold;">Symcor</span> - <span>Software Engineer Co-op</span>
+        <br></br>
+        <span>AI-based financial systems</span>
     </div>
 
     <div class="timeline-item" data-href="https://www.eng.mcmaster.ca/mcscert/">
-      <span class="date">Sep 2022 – Jun 2023</span>
-      <span style="color:#FFD700; font-weight:bold;">McSCert</span>
-      <span> - </span>
-      <span>Research Assistant Co-op</span>
-      <br></br>
-      <span>3D code visualization</span>
+        <span class="date">Sep 2022 – Jun 2023</span>
+        <span style="color:#FFD700; font-weight:bold;">McSCert</span> - <span>Research Assistant Co-op</span>
+        <br></br>
+        <span>3D code visualization</span>
     </div>
 
     <div class="timeline-item" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
-      <span class="date">May 2022 – Aug 2022</span>
-      <span style="color:#FFD700; font-weight:bold;">McMaster University </span>
-      <span> - </span>
-      <span>Research Assistant</span>
-      <br></br>
-      <span>Arduino embedded system</span>
+        <span class="date">May 2022 – Aug 2022</span>
+        <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>Research Assistant</span>
+        <br></br>
+        <span>Arduino embedded system</span>
     </div>
-  </div>
+</div>
 
-  <div class="panel">
+<div class="panel">
     <h2>Education</h2>
-
     <div class="timeline-item">
-      <span class="date">Aug 2026 (Expected)</span>
-      <span style="color:#FFD700; font-weight:bold;">McMaster University</span>
-      <span> - </span>
-      <span>M.Sc. Computer Science</span>
+        <span class="date">Aug 2026 (Expected)</span>
+        <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>M.Sc. Computer Science</span>
     </div>
-
     <div class="timeline-item">
-      <span class="date">Apr 2023</span>
-      <span style="color:#FFD700; font-weight:bold;">McMaster University</span>
-      <span> - </span>
-      <span>B.A.Sc. Computer Science</span>
+        <span class="date">Apr 2023</span>
+        <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>B.A.Sc. Computer Science</span>
     </div>
-
     <div class="timeline-item">
-      <span class="date">Jul 2019</span>
-      <span style="color:#FFD700; font-weight:bold;">Zhengzhou University</span>
-      <span> - </span>
-      <span>B.Ec. Finance</span>
+        <span class="date">Jul 2019</span>
+        <span style="color:#FFD700; font-weight:bold;">Zhengzhou University</span> - <span>B.Ec. Finance</span>
     </div>
+</div>
 
-  </div>
-
-  <div class="panel">
-  <h2>Skills</h2>
-  <div class="skills">
+<div class="panel">
+<h2>Skills</h2>
+<div class="skills">
     <span>C/C++</span>
     <span>TypeScript</span>
     <span>Java</span>
@@ -187,37 +246,51 @@ header{
     <span>MATLAB</span>
     <span>PostgreSQL</span>
     <span>Redis</span>
-  </div>
 </div>
-
-<style>
-  .skills span {
-    display: inline-block;
-    background: #3CB043; 
-    color:  white; 
-    margin: 3px 5px;
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-size: 0.9em;
-  }
-</style>
-
-</body>
-</html>
-
-<script>
-  // Select all timeline items you want clickable
-  const timelineItems = document.querySelectorAll('.timeline-item');
-
-  timelineItems.forEach(item => {
-    // Assign a URL via a custom data attribute
-    item.addEventListener('click', () => {
-      const url = item.dataset.href;   // get the URL from data-href
-      if (url) window.open(url, "_blank"); // open in new tab
-    });
-  });
-</script>
+</div>
 
 <footer style="margin:40px 0; color:white; text-shadow:2px 2px #000;">
   © 2026 Mingzhe Wang. All rights reserved.
 </footer>
+
+<script>
+  // Timeline links
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  timelineItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const url = item.dataset.href;
+      if(url) window.open(url, "_blank");
+    });
+  });
+
+  // Gold counter + random popup
+  let gold = 0;
+  const counter = document.getElementById("goldCount");
+
+  document.querySelectorAll(".skills span").forEach(skill => {
+    skill.addEventListener("click", () => {
+        const gain = Math.floor(Math.random() * 10) + 1;
+        gold += gain;
+        counter.textContent = gold;
+
+        // get skill position
+        const rect = skill.getBoundingClientRect();
+
+        // create popup in body
+        const popup = document.createElement("span");
+        popup.textContent = `🟡+${gain}`;
+        popup.classList.add("gold-popup");
+        document.body.appendChild(popup);
+
+        // position popup
+        popup.style.left = rect.left + rect.width/2 + "px";
+        popup.style.top  = rect.top - 25 + window.scrollY + "px"; // slightly above skill
+
+        // remove after animation
+        popup.addEventListener("animationend", () => popup.remove());
+    });
+  });
+</script>
+
+</body>
+</html>
