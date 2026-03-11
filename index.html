@@ -15,9 +15,9 @@ body{
     text-align:center;
 }
 
-/* Minecraft sky background */
+/* Header */
 header{
-    padding:60px 20px;
+    padding:10px 20px;
     color:white;
     text-shadow:3px 3px #000;
 }
@@ -29,8 +29,48 @@ header{
     color:white;
     width:60%;
     margin:40px auto;
-    padding:30px;
+    padding:10px;
     box-shadow:8px 8px #3d2a14;
+    position: relative;
+}
+
+/* Timeline bullets */
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.timeline-item {
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: pointer;             /* indicate hoverable */
+    border-radius: 20px;         /* round corners by default */
+}
+
+.timeline-item:hover {
+    transform: translateY(-2px);               
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);  
+    background: rgba(255, 255, 255, 0.2);  /* subtle, semi-transparent so text is readable */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: #3CB043;
+    border: 4px solid #1f6b29;
+    border-radius: 50%;
+}
+
+.timeline-item span.date {
+    display: block;
+    font-size: 0.7rem;
+    color: #d0ffd0;
+    margin-bottom: 5px;
 }
 
 /* Pixel button */
@@ -53,30 +93,127 @@ header{
 
 <body>
 
-<header>
-<h1>MINGZHE WORLD</h1>
-<p>Welcome to my pixel universe</p>
-</header>
+  <header>
+    <h1>MINGZHE WANG</h1>
+    <p>Software Engineer</p>
+    <div>
+      <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
+      <br></br>
+      <a class="button" href="https://github.com/myron0220" target="_blank">GitHub</a>
+      <a class="button" href="https://www.linkedin.com/in/mingzhe-wang-08b17a1b7/" target="_blank">LinkedIn</a>
+    </div>
+  </header>
 
-<div class="panel">
-<h2>Player Info</h2>
-<p>Name: Mingzhe Wang</p>
-<p>Class: C++ System Developer</p>
-<p>Level: Graduate Student</p>
+  <div class="panel">
+    <h2>Experience</h2>
+
+    <div class="timeline-item" data-href="https://www.symcor.com">
+      <span class="date">Sep 2025 – Apr 2026</span>
+      <span style="color:#FFD700; font-weight:bold;">Symcor</span>
+      <span> - </span>
+      <span>Software Engineer Co-op</span>
+      <br></br>
+      <span>AI-based financial systems</span>
+    </div>
+
+    <div class="timeline-item" data-href="https://www.eng.mcmaster.ca/mcscert/">
+      <span class="date">Sep 2022 – Jun 2023</span>
+      <span style="color:#FFD700; font-weight:bold;">McSCert</span>
+      <span> - </span>
+      <span>Research Assistant Co-op</span>
+      <br></br>
+      <span>3D code visualization</span>
+    </div>
+
+    <div class="timeline-item" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
+      <span class="date">May 2022 – Aug 2022</span>
+      <span style="color:#FFD700; font-weight:bold;">McMaster University </span>
+      <span> - </span>
+      <span>Research Assistant</span>
+      <br></br>
+      <span>Arduino embedded system</span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Education</h2>
+
+    <div class="timeline-item">
+      <span class="date">Aug 2026 (Expected)</span>
+      <span style="color:#FFD700; font-weight:bold;">McMaster University</span>
+      <span> - </span>
+      <span>M.Sc. in Computer Science</span>
+    </div>
+
+    <div class="timeline-item">
+      <span class="date">Apr 2023</span>
+      <span style="color:#FFD700; font-weight:bold;">McMaster University</span>
+      <span> - </span>
+      <span>B.A.Sc. in Computer Science</span>
+    </div>
+
+    <div class="timeline-item">
+      <span class="date">Jul 2019</span>
+      <span style="color:#FFD700; font-weight:bold;">Zhengzhou University</span>
+      <span> - </span>
+      <span>B.Ec. in Finance</span>
+    </div>
+
+  </div>
+
+  <div class="panel">
+  <h2>Skills</h2>
+  <div class="skills">
+    <span>C/C++</span>
+    <span>TypeScript</span>
+    <span>Java</span>
+    <span>Python</span>
+    <span>SQL</span>
+    <span>Bash</span>
+    <span>HTML/CSS</span>
+    <span>React</span>
+    <span>Node.js</span>
+    <span>NestJS</span>
+    <span>Express.js</span>
+    <span>Spring Boot</span>
+    <span>GraphQL</span>
+    <span>Linux</span>
+    <span>VS Code</span>
+    <span>Git</span>
+    <span>Docker</span>
+    <span>Azure</span>
+    <span>Postman</span>
+    <span>Jira</span>
+    <span>MATLAB</span>
+    <span>PostgreSQL</span>
+    <span>Redis</span>
+  </div>
 </div>
 
-<div class="panel">
-<h2>Quest Log</h2>
-<p>• Building distributed storage systems</p>
-<p>• Exploring database engines</p>
-<p>• Mastering high performance C++</p>
-</div>
-
-<div class="panel">
-<h2>Connect</h2>
-<a class="button" href="#">GitHub</a>
-<a class="button" href="#">LinkedIn</a>
-</div>
+<style>
+  .skills span {
+    display: inline-block;
+    background: #3CB043; 
+    color:  white; 
+    margin: 3px 5px;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+  }
+</style>
 
 </body>
 </html>
+
+<script>
+  // Select all timeline items you want clickable
+  const timelineItems = document.querySelectorAll('.timeline-item');
+
+  timelineItems.forEach(item => {
+    // Assign a URL via a custom data attribute
+    item.addEventListener('click', () => {
+      const url = item.dataset.href;   // get the URL from data-href
+      if (url) window.open(url, "_blank"); // open in new tab
+    });
+  });
+</script>
