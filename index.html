@@ -241,10 +241,69 @@
       }
   }
 
+  /* Floating clouds */
+  .cloud {
+      position: fixed;
+      top: 80px;
+      width: 200px;
+      height: 60px;
+      background: white;
+      border-radius: 50px;
+      opacity: 0.8;
+      z-index: -1;
+  }
+
+  .cloud::before,
+  .cloud::after {
+      content: "";
+      position: absolute;
+      background: white;
+      width: 100px;
+      height: 80px;
+      top: -30px;
+      border-radius: 50%;
+  }
+
+  .cloud::before {
+      left: 20px;
+  }
+
+  .cloud::after {
+      right: 20px;
+  }
+
+  @keyframes floatCloud {
+      from {
+          transform: translateX(-300px);
+      }
+      to {
+          transform: translateX(120vw);
+      }
+  }
+
+  .cloud1 {
+      top: 120px;
+      animation: floatCloud 60s linear infinite;
+  }
+
+  .cloud2 {
+      top: 260px;
+      animation: floatCloud 90s linear infinite;
+  }
+
+  .cloud3 {
+      top: 420px;
+      animation: floatCloud 75s linear infinite;
+  }
+
   </style>
   </head>
 
   <body>
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
   <header>
       <h1>MINGZHE WANG</h1>
       <div class="gold-counter">
