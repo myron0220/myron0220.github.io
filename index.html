@@ -44,8 +44,6 @@
     cursor: none !important;
   } 
 
-  
-
   @keyframes cursorJump {
       0%   { transform: translate(0, 0) rotate(0deg); }
       25%  { transform: translate(0, -8px) rotate(-10deg); }
@@ -59,6 +57,26 @@
       padding:10px 20px;
       color:white;
       text-shadow:3px 3px #000;
+  }
+
+  /* Viewer Count */
+  #visitor-badge {
+    position: fixed;       /* Stick to viewport */
+    top: 16px;             /* Distance from top */
+    right: 16px;           /* Distance from right */
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* box-shadow: 0 2px 8px rgba(0,0,0,0.2); */
+    z-index: 9999;         /* On top of everything */
+  }
+
+  #visitor-badge .emoji {
+    font-size: 20px;       /* Slightly bigger for cuteness */
   }
 
   /* Panels */
@@ -350,6 +368,14 @@
           <span class="emoji">🟡</span> <span id="goldCount">0</span>
       </div>
       <div id="clock" style="margin-top:10px; font-size:0.9em; color: white;"></div>
+
+      <!-- viewer counter -->
+      <div id="visitor-badge">
+        <span class="emoji">🐾</span>
+        <span> </span>
+        <span id="viewCount">0</span>
+      </div>
+
       <div>
           <a class="button" href="https://lab.jhellings.nl/" target="_blank">Database Theory and Engineering Lab</a>
           <br><br>
@@ -573,6 +599,12 @@
         setTimeout(() => window.open(link.href, "_blank"), JUMP_DELAY_MS);
       });
     });
+
+    fetch('https://api.countapi.xyz/hit/myron0220-github-io/visits')
+      .then(res => res.json())
+      .then(res => {
+        document.getElementById('viewCount').innerText = res.value;
+      });
   </script>
 
   </body>
