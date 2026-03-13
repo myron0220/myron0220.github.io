@@ -423,12 +423,15 @@
   </footer>
 
   <script>
+    // Global constant
+    const JUMP_DELAY_MS = 1000;
+
     // Timeline links
     const timelineItems = document.querySelectorAll('.timeline-item-work');
     timelineItems.forEach(item => {
       item.addEventListener('click', () => {
         const url = item.dataset.href;
-        if(url) setTimeout(() => window.open(url, "_blank"), 600);
+        if(url) setTimeout(() => window.open(url, "_blank"), JUMP_DELAY_MS);
       });
     });
 
@@ -472,7 +475,7 @@
 
           // existing link opening
           const url = item.dataset.href;
-          if(url) setTimeout(() => window.open(url, "_blank"), 600);
+          if(url) setTimeout(() => window.open(url, "_blank"), JUMP_DELAY_MS);
 
           // spawn dragon
           const rect = item.getBoundingClientRect();
@@ -498,7 +501,7 @@
 
           // existing link opening
           const url = item.dataset.href;
-          if(url) setTimeout(() => window.open(url, "_blank"), 600);
+          if(url) setTimeout(() => window.open(url, "_blank"), JUMP_DELAY_MS);
 
           // spawn dragon
           const rect = item.getBoundingClientRect();
@@ -542,6 +545,20 @@
     document.addEventListener("click", () => {
         document.body.classList.add("click-jump");
         setTimeout(() => document.body.classList.remove("click-jump"), 300); // match animation duration
+    });
+
+    // Make all header links jump on click and open after 1s
+    document.querySelectorAll('header a.button').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault(); // stop immediate navigation
+
+        // trigger the same cursor jump
+        document.body.classList.add("click-jump");
+        setTimeout(() => document.body.classList.remove("click-jump"), 300);
+
+        // open the link after 1 second
+        setTimeout(() => window.open(link.href, "_blank"), JUMP_DELAY_MS);
+      });
     });
   </script>
 
