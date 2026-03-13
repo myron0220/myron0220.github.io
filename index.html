@@ -599,12 +599,6 @@
         setTimeout(() => window.open(link.href, "_blank"), JUMP_DELAY_MS);
       });
     });
-
-    fetch('https://api.countapi.xyz/hit/myron0220-github-io/visits')
-      .then(res => res.json())
-      .then(res => {
-        document.getElementById('viewCount').innerText = res.value;
-      });
   </script>
 
   </body>
