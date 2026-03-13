@@ -428,7 +428,7 @@
     timelineItems.forEach(item => {
       item.addEventListener('click', () => {
         const url = item.dataset.href;
-        if(url) window.open(url, "_blank");
+        if(url) setTimeout(() => window.open(url, "_blank"), 600);
       });
     });
 
@@ -472,7 +472,7 @@
 
           // existing link opening
           const url = item.dataset.href;
-          if(url) window.open(url, "_blank");
+          if(url) setTimeout(() => window.open(url, "_blank"), 600);
 
           // spawn dragon
           const rect = item.getBoundingClientRect();
@@ -498,7 +498,7 @@
 
           // existing link opening
           const url = item.dataset.href;
-          if(url) window.open(url, "_blank");
+          if(url) setTimeout(() => window.open(url, "_blank"), 600);
 
           // spawn dragon
           const rect = item.getBoundingClientRect();
