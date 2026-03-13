@@ -28,13 +28,22 @@
       cursor: url("img/dinosaur_0.png") 16 16, auto; /* normal cursor */
   }
 
+  /* clickable cursor (now not using, but can be useful in the future) */
+  /*
   a, .button, .timeline-item-edu, .timeline-item-exp, .skills span {
-    cursor: url("img/dinosaur_1.png") 16 16, pointer; /* clickable cursor */
+    
+    cursor: url("img/dinosaur_1.png") 16 16, pointer; 
   }
+  */
 
   /* Cursor click jump animation */
   body.click-jump {
       animation: cursorJump 0.3s ease;
+  }
+
+  /* Cursor hide */
+  body.hide-cursor {
+    cursor: none;
   }
 
   @keyframes cursorJump {
@@ -425,6 +434,7 @@
   <script>
     // Global constant
     const JUMP_DELAY_MS = 1000;
+    const JUMP_ANIMATION_MS = 300;
 
     // Timeline links
     const timelineItems = document.querySelectorAll('.timeline-item-work');
@@ -543,8 +553,11 @@
 
     // Make the green cursor jump on any click
     document.addEventListener("click", () => {
-        document.body.classList.add("click-jump");
-        setTimeout(() => document.body.classList.remove("click-jump"), 300); // match animation duration
+      document.body.classList.add("click-jump");
+      document.body.classList.add("hide-cursor");
+
+      setTimeout(() => document.body.classList.remove("click-jump"), JUMP_ANIMATION_MS);
+      setTimeout(() => document.body.classList.remove("hide-cursor"), JUMP_ANIMATION_MS);
     });
 
     // Make all header links jump on click and open after 1s
@@ -554,7 +567,7 @@
 
         // trigger the same cursor jump
         document.body.classList.add("click-jump");
-        setTimeout(() => document.body.classList.remove("click-jump"), 300);
+        setTimeout(() => document.body.classList.remove("click-jump"), JUMP_ANIMATION_MS);
 
         // open the link after 1 second
         setTimeout(() => window.open(link.href, "_blank"), JUMP_DELAY_MS);
