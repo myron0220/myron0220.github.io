@@ -421,7 +421,7 @@
       <h2>Projects</h2>
       <div class="timeline-item-edu" data-href="https://github.com/myron0220/ShakeMeal" data-preview="demos/demo_video.mp4" data-preview-poster="demos/demo_picture.png" data-preview-type="video" data-preview-label="ShakeMeal Demo">
           <span class="date">Sep 2025 – Apr 2026</span>
-          <span style="color:#FFD700; font-weight:bold;">ShakeMeal</span> - <span>SwiftUI, Go, PostgreSQL</span>
+          <span style="color:#FFD700; font-weight:bold;">ShakeMeal</span> - <span>SwiftUI, Go, PostgreSQL, AI, LLM</span>
           <br></br>
           <span>IOS recommendation system for nearby restaurants</span>
       </div>
@@ -657,6 +657,20 @@
 
     let previewHideTimer = null;
 
+    function positionPreview(e) {
+        const offset = 16;
+        const popupW = previewPopup.offsetWidth || 316;
+        const popupH = previewPopup.offsetHeight || 200;
+        let left = e.clientX + offset;
+        let top  = e.clientY + offset;
+        if (left + popupW > window.innerWidth)  left = e.clientX - popupW - offset;
+        if (top  + popupH > window.innerHeight) top  = e.clientY - popupH - offset;
+        left = Math.max(8, Math.min(left, window.innerWidth  - popupW - 8));
+        top  = Math.max(8, Math.min(top,  window.innerHeight - popupH - 8));
+        previewPopup.style.left = left + 'px';
+        previewPopup.style.top  = top  + 'px';
+    }
+
     document.querySelectorAll('.timeline-item-edu[data-preview]').forEach(item => {
         item.addEventListener('mouseenter', (e) => {
             clearTimeout(previewHideTimer);
@@ -682,17 +696,11 @@
                 mediaEl.appendChild(img);
             }
             previewPopup.querySelector('.preview-label').textContent = label;
-
-            const rect = item.getBoundingClientRect();
-            const popupW = 316;
-            let left = rect.right + 12;
-            if (left + popupW > window.innerWidth) left = rect.left - popupW - 12;
-            let top = rect.top + window.scrollY;
-
-            previewPopup.style.left = left + 'px';
-            previewPopup.style.top = top + 'px';
+            positionPreview(e);
             previewPopup.classList.add('visible');
         });
+
+        item.addEventListener('mousemove', positionPreview);
 
         item.addEventListener('mouseleave', () => {
             previewHideTimer = setTimeout(() => {
