@@ -351,6 +351,39 @@
       animation: floatCloud 75s linear infinite;
   }
 
+  /* Project demo preview popup */
+  .project-preview-popup {
+      position: fixed;
+      z-index: 9999;
+      background: rgba(10, 10, 20, 0.95);
+      border: 2px solid #FFD700;
+      border-radius: 12px;
+      padding: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      width: 300px;
+  }
+  .project-preview-popup.visible {
+      opacity: 1;
+      transform: scale(1);
+  }
+  .project-preview-popup video,
+  .project-preview-popup img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+  }
+  .project-preview-popup .preview-label {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.5rem;
+      color: #FFD700;
+      text-align: center;
+      margin-top: 6px;
+  }
+
   </style>
   </head>
 
@@ -386,7 +419,7 @@
 
     <div class="panel">
       <h2>Projects</h2>
-      <div class="timeline-item-edu" data-href="https://github.com/myron0220/ShakeMeal">
+      <div class="timeline-item-edu" data-href="https://github.com/myron0220/ShakeMeal" data-preview="demos/demo_video.mp4" data-preview-poster="demos/demo_picture.png" data-preview-type="video" data-preview-label="ShakeMeal Demo">
           <span class="date">Sep 2025 – Apr 2026</span>
           <span style="color:#FFD700; font-weight:bold;">ShakeMeal</span> - <span>SwiftUI, Go, PostgreSQL</span>
           <br></br>
@@ -614,6 +647,62 @@
         // open the link after 1 second
         setTimeout(() => window.open(link.href, "_blank"), JUMP_DELAY_MS);
       });
+    });
+
+    // Project demo preview on hover
+    const previewPopup = document.createElement('div');
+    previewPopup.className = 'project-preview-popup';
+    previewPopup.innerHTML = '<div class="preview-media"></div><div class="preview-label"></div>';
+    document.body.appendChild(previewPopup);
+
+    let previewHideTimer = null;
+
+    document.querySelectorAll('.timeline-item-edu[data-preview]').forEach(item => {
+        item.addEventListener('mouseenter', (e) => {
+            clearTimeout(previewHideTimer);
+            const src = item.dataset.preview;
+            const type = item.dataset.previewType || 'video';
+            const label = item.dataset.previewLabel || '';
+            const mediaEl = previewPopup.querySelector('.preview-media');
+
+            mediaEl.innerHTML = '';
+            if (type === 'video') {
+                const vid = document.createElement('video');
+                vid.src = src;
+                if (item.dataset.previewPoster) vid.poster = item.dataset.previewPoster;
+                vid.autoplay = true;
+                vid.muted = true;
+                vid.loop = true;
+                vid.playsInline = true;
+                mediaEl.appendChild(vid);
+            } else {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = label;
+                mediaEl.appendChild(img);
+            }
+            previewPopup.querySelector('.preview-label').textContent = label;
+
+            const rect = item.getBoundingClientRect();
+            const popupW = 316;
+            let left = rect.right + 12;
+            if (left + popupW > window.innerWidth) left = rect.left - popupW - 12;
+            let top = rect.top + window.scrollY;
+
+            previewPopup.style.left = left + 'px';
+            previewPopup.style.top = top + 'px';
+            previewPopup.classList.add('visible');
+        });
+
+        item.addEventListener('mouseleave', () => {
+            previewHideTimer = setTimeout(() => {
+                previewPopup.classList.remove('visible');
+                const mediaEl = previewPopup.querySelector('.preview-media');
+                const vid = mediaEl.querySelector('video');
+                if (vid) vid.pause();
+                mediaEl.innerHTML = '';
+            }, 80);
+        });
     });
 
     fetch('https://api.countapi.xyz/hit/myron0220-github-io/visits')
