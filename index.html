@@ -734,12 +734,14 @@
         });
     });
 
-    fetch('https://api.countapi.xyz/hit/myron0220-github-io/visits')
+    fetch('https://myr0220.goatcounter.com/counter//.json')
       .then(res => res.json())
       .then(res => {
-        document.getElementById('viewCount').innerText = res.value;
+        document.getElementById('viewCount').innerText = res.count;
       });
   </script>
 
+  <script data-goatcounter="https://myr0220.goatcounter.com/count"
+          async src="//gc.zgo.at/count.js"></script>
   </body>
 </html>
