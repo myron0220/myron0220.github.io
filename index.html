@@ -383,6 +383,13 @@
       text-align: center;
       margin-top: 6px;
   }
+  .project-preview-popup .preview-disclaimer {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.35rem;
+      color: #aaa;
+      text-align: center;
+      margin-top: 4px;
+  }
 
   </style>
   </head>
@@ -420,13 +427,13 @@
     <div class="panel">
       <h2>Projects</h2>
       <div class="timeline-item-edu" data-href="https://github.com/myron0220/ShakeMeal" data-preview="demos/demo_video.mp4" data-preview-poster="demos/demo_picture.png" data-preview-type="video" data-preview-label="ShakeMeal Demo">
-          <span class="date">Sep 2025 – Apr 2026</span>
+          <!-- <span class="date">Sep 2025 – Apr 2026</span> -->
           <span style="color:#FFD700; font-weight:bold;">ShakeMeal</span> - <span>SwiftUI, Go, PostgreSQL, LLM, AI</span>
           <br></br>
           <span>IOS recommendation system for nearby restaurants</span>
       </div>
       <div class="timeline-item-edu" data-href="https://github.com/myron0220/query_engine">
-          <span class="date">Sep 2025 – Apr 2026</span>
+          <!-- <span class="date">Sep 2025 – Apr 2026</span> -->
           <span style="color:#FFD700; font-weight:bold;">Query Engine</span> - <span>C++, RDBMS</span>
           <br></br>
           <span>In-memory SQL query execution engine</span>
@@ -437,23 +444,37 @@
       <h2>Experience</h2>
       <div class="timeline-item-edu" data-href="https://www.symcor.ca/">
           <span class="date">Sep 2025 – Apr 2026</span>
-          <span style="color:#FFD700; font-weight:bold;">Symcor</span> - <span>Software Engineer Co-op</span>
+          <span style="color:#FFD700; font-weight:bold;">Symcor</span> - <span>Software Engineer Co-op (TypeScript) </span>
           <br></br>
           <span>AI-based financial systems</span>
       </div>
 
+      <div class="timeline-item-edu" data-href="https://lab.jhellings.nl/">
+          <span class="date">May 2023 – Aug 2025</span>
+          <span style="color:#FFD700; font-weight:bold;">Database Theory and Engineering Lab</span> - <span>Graduate Researcher (C++)</span>
+          <br></br>
+          <span>Database systems</span>
+      </div>
+
       <div class="timeline-item-edu" data-href="https://www.eng.mcmaster.ca/mcscert/">
           <span class="date">Sep 2022 – Jun 2023</span>
-          <span style="color:#FFD700; font-weight:bold;">McSCert</span> - <span>Research Assistant Co-op</span>
+          <span style="color:#FFD700; font-weight:bold;">McSCert</span> - <span>Research Assistant Co-op (TypeScript)</span>
           <br></br>
           <span>3D code visualization</span>
       </div>
 
       <div class="timeline-item-edu" data-href="https://gitlab.cas.mcmaster.ca/re-mote/arduino-motes">
           <span class="date">May 2022 – Aug 2022</span>
-          <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>Research Assistant</span>
+          <span style="color:#FFD700; font-weight:bold;">MacWater</span> - <span>Research Assistant (C/C++)</span>
           <br></br>
-          <span>Arduino embedded system</span>
+          <span>Embedded system</span>
+      </div>
+
+      <div class="timeline-item-edu" data-href="https://academiccalendars.romcmaster.ca/preview_course_nopop.php?catoid=53&coid=265613">
+          <span class="date">Sep 2021 – Dec 2021</span>
+          <span style="color:#FFD700; font-weight:bold;">McMaster University</span> - <span>Teaching Assistant (RISC-V)</span>
+          <br></br>
+          <span>Computer Architecture</span>
       </div>
   </div>
 
@@ -652,7 +673,7 @@
     // Project demo preview on hover
     const previewPopup = document.createElement('div');
     previewPopup.className = 'project-preview-popup';
-    previewPopup.innerHTML = '<div class="preview-media"></div><div class="preview-label"></div>';
+    previewPopup.innerHTML = '<div class="preview-media"></div><div class="preview-label"></div><div class="preview-disclaimer">Photo for illustration purposes only.</div>';
     document.body.appendChild(previewPopup);
 
     let previewHideTimer = null;
