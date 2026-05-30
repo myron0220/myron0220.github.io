@@ -383,12 +383,10 @@
       text-align: center;
       margin-top: 6px;
   }
-  .project-preview-popup .preview-disclaimer {
-      font-family: 'Press Start 2P', cursive;
+  .project-preview-popup .preview-label .preview-disclaimer {
       font-size: 0.35rem;
       color: #aaa;
-      text-align: center;
-      margin-top: 4px;
+      margin-left: 6px;
   }
 
   </style>
@@ -673,7 +671,7 @@
     // Project demo preview on hover
     const previewPopup = document.createElement('div');
     previewPopup.className = 'project-preview-popup';
-    previewPopup.innerHTML = '<div class="preview-media"></div><div class="preview-label"></div><div class="preview-disclaimer">Photo for illustration purposes only.</div>';
+    previewPopup.innerHTML = '<div class="preview-media"></div><div class="preview-label"><span class="label-text"></span><span class="preview-disclaimer"> · Photo for illustration purposes only.</span></div>';
     document.body.appendChild(previewPopup);
 
     let previewHideTimer = null;
@@ -716,7 +714,7 @@
                 img.alt = label;
                 mediaEl.appendChild(img);
             }
-            previewPopup.querySelector('.preview-label').textContent = label;
+            previewPopup.querySelector('.preview-label .label-text').textContent = label;
             positionPreview(e);
             previewPopup.classList.add('visible');
         });
