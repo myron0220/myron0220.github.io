@@ -394,6 +394,11 @@
       border-radius: 8px;
       display: block;
   }
+  .project-preview-popup.large video,
+  .project-preview-popup.large img {
+      max-width: 880px;
+      max-height: 86vh;
+  }
   .project-preview-popup .preview-label {
       font-family: 'Press Start 2P', cursive;
       font-size: 0.5rem;
@@ -449,21 +454,21 @@
           <br></br>
           <span>In-memory SQL query execution engine</span>
       </div>
-      <div class="timeline-item-edu" data-preview="demos/vat0_video.mp4" data-preview-poster="demos/vat0_picture.jpg" data-preview-type="video" data-preview-label="vat_0 Demo">
+      <div class="timeline-item-edu" data-preview="demos/vat0_video.mp4" data-preview-poster="demos/vat0_picture.jpg" data-preview-type="video" data-preview-label="vat_0 Demo" data-preview-size="large">
           <!-- <span class="date">Sep 2025 – Apr 2026</span> -->
           <span style="color:#FFD700; font-weight:bold;">vat_0</span>
           <span class="tag">Python</span><span class="tag">Simulator</span>
           <br></br>
           <span>General AI runtime for physical AI and LLM agents</span>
       </div>
-      <div class="timeline-item-edu" data-href="https://github.com/myron0220/ShakeMeal" data-preview="demos/demo_video.mp4" data-preview-poster="demos/demo_picture.png" data-preview-type="video" data-preview-label="ShakeMeal Demo" data-preview-disclaimer="Photo for illustration purposes only.">
+      <div class="timeline-item-edu" data-href="https://github.com/myron0220/ShakeMeal" data-preview="demos/demo_video.mp4" data-preview-poster="demos/demo_picture.png" data-preview-type="video" data-preview-label="ShakeMeal Demo" data-preview-disclaimer="Photo for illustration purposes only." data-preview-size="large">
           <!-- <span class="date">Sep 2025 – Apr 2026</span> -->
           <span style="color:#FFD700; font-weight:bold;">ShakeMeal</span>
           <span class="tag">SwiftUI</span><span class="tag">Go</span><span class="tag">Recommendation System</span>
           <br></br>
           <span>IOS recommendation system for nearby restaurants</span>
       </div>
-      <div class="timeline-item-edu" data-href="https://github.com/myron0220/probe" data-preview="demos/probe_video.mp4" data-preview-poster="demos/probe_picture.jpg" data-preview-type="video" data-preview-label="Probe Demo">
+      <div class="timeline-item-edu" data-href="https://github.com/myron0220/probe" data-preview="demos/probe_video.mp4" data-preview-poster="demos/probe_picture.jpg" data-preview-type="video" data-preview-label="Probe Demo" data-preview-size="large">
           <!-- <span class="date">Sep 2025 – Apr 2026</span> -->
           <span style="color:#FFD700; font-weight:bold;">Probe</span>
           <span class="tag">JavaScript</span><span class="tag">Electron</span><span class="tag">Chromium</span>
@@ -742,6 +747,7 @@
             const disclaimer = item.dataset.previewDisclaimer || '';
             disclaimerEl.textContent = disclaimer;
             labelEl.style.display = disclaimer ? '' : 'none';
+            previewPopup.classList.toggle('large', item.dataset.previewSize === 'large');
 
             mediaEl.innerHTML = '';
             if (type === 'video') {
